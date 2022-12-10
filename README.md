@@ -6,6 +6,8 @@ background jobs.
 The application source code we want to serve is located in this repo. Please refer to the
 [About this repo](#about-this-repo) section for more information.
 
+What you should deliver is a private ansible repository that you added `amirali` and `sazary` users as collaborators.
+
 If you have any questions or find any part of the task vague, don’t hesitate to get in touch with
 us.
 
