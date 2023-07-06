@@ -1,5 +1,5 @@
 from celery.result import AsyncResult
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
@@ -23,3 +23,8 @@ def get_status(request, task_id):
         "task_result": task_result.result
     }
     return JsonResponse(result, status=200)
+
+
+@csrf_exempt
+def welcome(request):
+    return HttpResponse('Welcome', status=200)
