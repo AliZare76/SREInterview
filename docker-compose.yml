@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
     entrypoint: ./entrypoint.sh
-    expose:
+    ports:
       - 80:8000     
     environment:
       DEBUG: 'True'
