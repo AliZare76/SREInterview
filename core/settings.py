@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import sys
+import logging
 import os
 from pathlib import Path
 
@@ -23,10 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY", "averysecretkey")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = int(os.environ.get("DEBUG", True))
+DEBUG = int(False)
 
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS",
-                               "localhost example.com").split(" ")
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '181.41.194.182']
 
 # Application definition
 
@@ -133,8 +134,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://localhost:6379/0")
 CELERY_RESULT_BACKEND = os.environ.get("CELERY_BROKER",
                                        "redis://localhost:6379/0")
-import logging
-import sys
 
 LOGGING = {
     'version': 1,
