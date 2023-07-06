@@ -1,0 +1,7 @@
+[servers]
+server1 ansible_host=181.41.194.182 ansible_user=root
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_port=9011
+
