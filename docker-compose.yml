@@ -10,7 +10,7 @@ services:
     expose:
       - 8000     
     environment:
-      DEBUG: True
+      DEBUG: 'True'
       CELERY_BROKER_URL: "redis://redis:6379/0"
       CELERY_RESULT_BACKEND: "redis://redis:6379/0"
       DJANGO_DB: postgresql
@@ -26,7 +26,7 @@ services:
       dockerfile: ./Dockerfile
     entrypoint: /app/celery-entrypoint.sh
     environment:
-      DEBUG: True
+      DEBUG: 'True'
       CELERY_BROKER_URL: "redis://redis:6379/0"
       CELERY_RESULT_BACKEND: "redis://redis:6379/0"
       DJANGO_DB: postgresql
