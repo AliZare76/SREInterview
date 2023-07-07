@@ -82,6 +82,7 @@
         url : https://github.com/docker/compose/releases/download/1.25.1-rc1/docker-compose-Linux-x86_64
         dest: /usr/local/bin/docker-compose
         mode: 'u+x,g+x'
+        
     - name: Run `docker-compose down`
       shell:
         cmd: cd /home/app && docker-compose down
@@ -89,6 +90,7 @@
         - docker
         - compose
         - down
+
     - name: Run `docker-compose up`
       shell:
         cmd: cd /home/app && docker-compose up -d --build
