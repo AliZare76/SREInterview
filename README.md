@@ -79,11 +79,11 @@ $ celery -A core worker
 To trigger a new task:
 
 ```sh
-$ curl -F duration=1 http://181.41.194.182/tasks/
+$ curl -F duration=45 http://181.41.194.182:3000/tasks/
 ```
 
 To check the status:
 
 ```sh
-$ curl http://181.41.194.182/tasks/<TASK_ID>/
+$ watch -n 2 curl http://181.41.194.182:3000/tasks/<task_id>/
 ```
