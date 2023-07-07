@@ -8,8 +8,9 @@ services:
       dockerfile: ./Dockerfile
     entrypoint: ./entrypoint.sh
     ports:
-      - 80:8000     
+      - 3000:3000
     environment:
+      ALLOWED_HOSTS: '127.0.0.1 localhost 181.41.194.182'
       DEBUG: 'True'
       CELERY_BROKER_URL: "redis://redis:6379/0"
       CELERY_RESULT_BACKEND: "redis://redis:6379/0"
@@ -19,6 +20,9 @@ services:
       DATABASE_USER: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_PORT: 5432
+    volumes:
+      - static_volume:/app/staticfiles
+
   celery:
     restart: unless-stopped
     build:
@@ -26,6 +30,7 @@ services:
       dockerfile: ./Dockerfile
     entrypoint: /app/celery-entrypoint.sh
     environment:
+      ALLOWED_HOSTS: '127.0.0.1 localhost 181.41.194.182'
       DEBUG: 'True'
       CELERY_BROKER_URL: "redis://redis:6379/0"
       CELERY_RESULT_BACKEND: "redis://redis:6379/0"
@@ -38,6 +43,8 @@ services:
     depends_on:
       - django
       - redis
+    volumes:
+      - static_volume:/app/staticfiles
   redis:
     restart: unless-stopped
     image: redis:alpine 
@@ -57,3 +64,4 @@ services:
     
 volumes:
   postgres_data: {}
+  static_volume: {}
