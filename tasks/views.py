@@ -27,4 +27,26 @@ def get_status(request, task_id):
 
 @csrf_exempt
 def welcome(request):
-    return HttpResponse('Welcome', status=200)
+    html = """<!DOCTYPE html>
+                <html>
+                <head>
+                <!-- HTML Codes by Quackit.com -->
+                <title>
+                Welcome</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <style>
+                body {background-color:#ffffff;background-repeat:no-repeat;background-position:top left;background-attachment:fixed;}
+                h1{text-align:center;font-family:Arial, sans-serif;color:#000000;background-color:#ffffff;}
+                p {text-align:center;font-family:Georgia, serif;font-size:18px;font-style:normal;font-weight:normal;color:#000000;background-color:#ffffff;}
+                </style>
+                </head>
+                <body>
+                <h1>SREInterview</h1>
+                <p>to use the project : curl -F duration=60 https://sre.demoo.lol/tasks/ </p>
+                <p>then : curl https:/sre.demoo.lol/tasks/task_id/</p>
+                <p></p>
+                <p></p>
+                </body>
+                </html>"""
+
+    return HttpResponse(html, status=200)
