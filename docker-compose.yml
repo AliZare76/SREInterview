@@ -10,7 +10,7 @@ services:
     ports:
       - 3000:3000
     environment:
-      ALLOWED_HOSTS: '127.0.0.1 localhost 181.41.194.182'
+      ALLOWED_HOSTS: '127.0.0.1 localhost 181.41.194.182 sre.demoo.lol'
       DEBUG: 'True'
       CELERY_BROKER_URL: "redis://redis:6379/0"
       CELERY_RESULT_BACKEND: "redis://redis:6379/0"
@@ -30,7 +30,7 @@ services:
       dockerfile: ./Dockerfile
     entrypoint: /app/celery-entrypoint.sh
     environment:
-      ALLOWED_HOSTS: '127.0.0.1 localhost 181.41.194.182'
+      ALLOWED_HOSTS: '127.0.0.1 localhost 181.41.194.182 sre.demoo.lol'
       DEBUG: 'True'
       CELERY_BROKER_URL: "redis://redis:6379/0"
       CELERY_RESULT_BACKEND: "redis://redis:6379/0"

@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "averysecretkey")
 DEBUG = int(False)
 
 ALLOWED_HOSTS = os.environ.get(
-    "ALLOWED_HOSTS", '127.0.0.1 localhost').split(" ")
+    "ALLOWED_HOSTS", '127.0.0.1 localhost sre.demoo.lol').split(" ")
 
 # Application definition
 
