@@ -1,0 +1,15 @@
+---
+- name: Install packages
+  apt:
+    name: "{{ items }}"
+    state: present
+    update_cache: yes
+  loop:
+    - git
+    - sysstat
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+    - lftp
+  
