@@ -61,7 +61,16 @@ services:
       POSTGRES_PASSWORD: postgres
     expose:
       - 5432
-    
+  # nginx:
+  #   restart: always
+  #   image: nginx:alpine
+  #   ports:
+  #     - 443:443
+  #   volumes:
+  #     - ./nginx/defualt.conf:/etc/nginx/defualt.conf
+  #     - static_volume:/app/staticfiles
+  #     - ./nginx/keys/ssl_certificate.crt:/etc/nginx/ssl_certificate.crt:ro
+  #     - ./nginx/keys/ssl_certificate.key:/etc/nginx/ssl_certificate.key:ro
 volumes:
   postgres_data: {}
   static_volume: {}
