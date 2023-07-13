@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "averysecretkey")
 DEBUG = int(False)
 
 ALLOWED_HOSTS = os.environ.get(
-    "ALLOWED_HOSTS", '127.0.0.1 localhost sre.demoo.lol').split(" ")
+    "ALLOWED_HOSTS", '127.0.0.1 localhost sre.demoo.lol django').split(" ")
 
 # Application definition
 
@@ -40,9 +40,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "tasks",
+    'django_prometheus'
 ]
 
 MIDDLEWARE = [
+    'django_prometheus.middleware.PrometheusBeforeMiddleware',
+    'django_prometheus.middleware.PrometheusAfterMiddleware',
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
